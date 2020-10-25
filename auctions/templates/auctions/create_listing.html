@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        </style>
+    <title>
+        Create A New Listing
+    </title>
+</head>
+<body>
+    <div text-align:center style="margin: 0 auto">
+        <h1>Create A New Listing</h1>
+        <form action = "{% url 'auctions:added_listing' username %}" method = "POST">
+            {% csrf_token %}
+            <h2>Title:</h2>
+            <textarea name = "title" class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="1" cols = "20" placeholder="Write title here..."></textarea>
+
+            <div class="form-group shadow-textarea">
+                <h2>Write the description of your listing:</h2>
+                <textarea name = "description" class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="4" cols = "40" placeholder="Write something here..."></textarea>
+            </div>
+            <h2>Stating Bid:</h2>
+            <input type="number" name = "bid" step="any">
+            
+
+            <h1>Upload One Image for the Listing (Optional)</h1>
+            <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" />
+            <br>
+            <br>
+            <input type = "submit" value = "submit" class = "button"> 
+        </form> 
+    </div>
+</body>
